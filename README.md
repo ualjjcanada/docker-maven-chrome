@@ -4,10 +4,10 @@ Docker image for Java automated UI tests.
 
 Includes:
 
-* JDK 8/11/14
+* JDK 8/11/15
 * Maven 3.6.3
-* Chrome 83
-* ChromeDriver 83
+* Chrome 88
+* ChromeDriver 88
 
 Available on [Docker Hub](https://hub.docker.com/r/markhobson/maven-chrome/).
 
@@ -15,11 +15,11 @@ Available on [Docker Hub](https://hub.docker.com/r/markhobson/maven-chrome/).
 
 The following Docker tags are available:
 
-* `latest` [(jdk-8/Dockerfile)](jdk-8/Dockerfile)
+* `jdk-8`, `latest` [(jdk-8/Dockerfile)](jdk-8/Dockerfile)
 * `jdk-11` [(jdk-11/Dockerfile)](jdk-11/Dockerfile)
-* `jdk-14` [(jdk-14/Dockerfile)](jdk-14/Dockerfile)
+* `jdk-15` [(jdk-15/Dockerfile)](jdk-15/Dockerfile)
 
-See issue [#11](https://github.com/markhobson/docker-maven-chrome/issues/11) to improve these tags.
+**Note: Please use `jdk-8` instead of `latest`, as `latest` will be switched to `jdk-15` soon.** See issue [#11](https://github.com/markhobson/docker-maven-chrome/issues/11) for more information.
 
 ## Demo
 
@@ -31,6 +31,15 @@ cd demo
 ```
 
 ## Tips
+
+### Using with Selenium
+
+Configure [Selenium](https://www.selenium.dev/) to launch Chrome in headless mode:
+
+```java
+ChromeOptions options = new ChromeOptions().setHeadless(true);
+WebDriver driver = new ChromeDriver(options);
+```
 
 ### Configure Protractor to use bundled ChromeDriver
 
